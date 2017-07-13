@@ -5,8 +5,8 @@ local = 3
 ### ----------------------------------------- ###
 
 def temp1
-    # ERROR - CANNOT ACCESS LOCAL VARIABLE IN METHOD
-    # p local
+  # ERROR - CANNOT ACCESS LOCAL VARIABLE IN METHOD
+   # p local
 end
 
 temp1
@@ -14,8 +14,8 @@ temp1
 ### ----------------------------------------- ###
 
 [1,2,3].each do |x|
-    # SUCCESS - CAN ACCESS LOCAL VARIABLE IN BLOCK
-    p (x * local)
+  # SUCCESS - CAN ACCESS LOCAL VARIABLE IN BLOCK
+  p (x * local)
 end
 
 # p x ERROR ACCESSING BLOCK PARAMETER
@@ -23,8 +23,8 @@ end
 ### ----------------------------------------- ###
 
 prk = proc do |a, b|
-    # SUCCESS - CAN ACCESS LOCAL VARIABLE IN PROC
-    a + b + local
+  # SUCCESS - CAN ACCESS LOCAL VARIABLE IN PROC
+  a + b + local
 end
 
 p prk.call(1,2)
@@ -34,8 +34,8 @@ p prk.call(1,2)
 ### ----------------------------------------- ###
 
 lam = lambda do |a|
-    # SUCCESS - CAN ACCESS LOCAL VARIABLE IN LAMBDA
-    a ** local
+  # SUCCESS - CAN ACCESS LOCAL VARIABLE IN LAMBDA
+  a ** local
 end
 
 p lam.call(2)
@@ -48,11 +48,11 @@ p lam.call(2)
 # IT WITH YIELD, PASSING IN A PARAMETER, y
 
 def temp2
-    z = []
-    [2,3,4].each do |y|
-        z << (yield y)
-    end
-    z
+  z = []
+  [2,3,4].each do |y|
+    z << (yield y)
+  end
+  z
 end
 
 p temp2 {|x| x ** 2}
@@ -63,7 +63,7 @@ p temp2 {|x| x ** 2}
 # FIRST AND THEN CALLING IT
 
 def temp3(a, &block)
-    block.call(a)
+  block.call(a)
 end
 
 p temp3(4) {|x| x / 2.1}
@@ -74,7 +74,7 @@ p temp3(4) {|x| x / 2.1}
 # METHOD AND CALLING ALL THREE
 
 def temp4(v, p, l, &b)
-    b.call(l.call(p.call(v)))
+  b.call(l.call(p.call(v)))
 end
 
 p1 = proc {|x| x ** 2}
