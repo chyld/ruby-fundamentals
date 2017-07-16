@@ -12,3 +12,11 @@ def duplicate_count(text)
   h.delete_if {|k,v| v == 1}
   h.values.count
 end
+
+def disemvowel(str)
+  str.chars.reject{|c| /[aeiou]/i === c }.join
+end
+
+def XO(str)
+  str.downcase.count('x') == str.downcase.count('o')
+end
